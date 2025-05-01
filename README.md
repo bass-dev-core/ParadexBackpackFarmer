@@ -1,91 +1,90 @@
-
-Вот подробный и красивый гайд по запуску вашего софта тремя разными способами: через pip, через uv и через Docker. Также описан этап заполнения конфига.
+Here is a detailed and beautiful guide for running your software in three different ways: via pip, via uv, and via Docker. The configuration step is also described.
 
 ---
 
-# Гайд по запуску
+# Launch Guide
 
-## 1. Установка и запуск через pip
+## 1. Installation and Launch via pip
 
-1. **Клонируйте репозиторий:**
+1. **Clone the repository:**
    ```bash
    git clone git@github.com:ohikava/ParadexBackpackFarmer.git
    cd ParadexBackpackFarmer
    ```
 
-2. **Создайте и активируйте виртуальное окружение (рекомендуется):**
+2. **Create and activate a virtual environment (recommended):**
    ```bash
    python3 -m venv venv
-   source venv/bin/activate  # Для Linux/Mac
-   venv\Scripts\activate     # Для Windows
+   source venv/bin/activate  # For Linux/Mac
+   venv\Scripts\activate     # For Windows
    ```
 
-3. **Установите зависимости:**
+3. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Настройте конфиг:**
-   - Откройте файл `config_example.xlsx`.
-   - Заполните его своими данными (API-ключи, настройки и т.д.).
-   - Сохраните как `config.xlsx` в корне проекта.
+4. **Configure settings:**
+   - Open the `config_example.xlsx` file.
+   - Fill it in with your data (API keys, settings, etc.).
+   - Save it as `config.xlsx` in the project root.
 
-5. **Запустите софт:**
+5. **Run the software:**
    ```bash
    python run.py
    ```
 
 ---
 
-## 2. Установка и запуск через uv
+## 2. Installation and Launch via uv
 
-[uv](https://github.com/astral-sh/uv) — это быстрый менеджер пакетов и виртуальных окружений для Python.
+[uv](https://github.com/astral-sh/uv) is a fast package and virtual environment manager for Python.
 
-1. **Установите uv (если не установлен):**
+1. **Install uv (if not installed):**
    ```bash
    pip install uv
    ```
 
-2. **Установите зависимости через uv:**
+2. **Install dependencies via uv:**
    ```bash
    uv pip install -r requirements.txt
    ```
 
-3. **Настройте конфиг:**
-   - Откройте `config_example.xlsx`, заполните и сохраните как `config.xlsx`.
+3. **Configure settings:**
+   - Open `config_example.xlsx`, fill it in, and save as `config.xlsx`.
 
-4. **Запустите софт:**
+4. **Run the software:**
    ```bash
    python run.py
    ```
 
 ---
 
-## 3. Запуск через Docker
+## 3. Launch via Docker
 
-1. **Соберите Docker-образ:**
+1. **Build the Docker image:**
    ```bash
    docker build -t myapp .
    ```
 
-2. **Настройте конфиг:**
-   - Откройте `config_example.xlsx`, заполните и сохраните как `config.xlsx`.
-   - Поместите `config.xlsx` в корень проекта (или укажите путь при запуске контейнера).
+2. **Configure settings:**
+   - Open `config_example.xlsx`, fill it in, and save as `config.xlsx`.
+   - Place `config.xlsx` in the project root (or specify the path when running the container).
 
-3. **Запустите контейнер:**
+3. **Run the container:**
    ```bash
    docker run -v $(pwd)/config.xlsx:/app/config.xlsx myapp
    ```
-   > Для Windows путь может выглядеть так:  
+   > For Windows, the path may look like this:  
    > `-v %cd%\config.xlsx:/app/config.xlsx`
 
 ---
 
-## Важно
+## Important
 
-- **config.xlsx** — основной файл конфигурации. Без него софт не запустится.  
-- Всегда делайте копию `config_example.xlsx` и переименовывайте её в `config.xlsx`, затем заполняйте своими данными.
+- **config.xlsx** is the main configuration file. The software will not run without it.  
+- Always make a copy of `config_example.xlsx` and rename it to `config.xlsx`, then fill it in with your data.
 
 ---
 
-Если возникнут вопросы — смело обращайтесь! 🚀
+If you have any questions, feel free to ask! 🚀
